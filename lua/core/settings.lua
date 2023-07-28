@@ -6,7 +6,7 @@ settings["use_ssh"] = false
 -- Set the colorscheme to use here.
 -- Available values are: `kanagawa`, `catppuccin`, `catppuccin-latte`, `catppucin-mocha`, `catppuccin-frappe`, `catppuccin-macchiato`, `edge`, `nord`.
 ---@type string
-settings["colorscheme"] = "kanagawa"
+settings["colorscheme"] = "catppuccin"
 
 -- Set background color to use here.
 -- Useful if you would like to use a colorscheme that has a light and dark variant like `edge`.

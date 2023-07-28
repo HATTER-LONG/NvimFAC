@@ -16,6 +16,12 @@ local plug_map = {
         :with_noremap()
         :with_silent()
         :with_desc("tool: Toggle command panel"),
+    ["n|<leader>fw"] = map_callback(function()
+			require("telescope").extensions.live_grep_args.live_grep_args()
+		end)
+		:with_noremap()
+		:with_silent()
+		:with_desc("find: Word in project"),
     ["n|<leader>fe"] = map_cu("Telescope oldfiles"):with_noremap():with_silent():with_desc("find: File by history"),
     ["n|<leader>ff"] = map_cu("Telescope find_files"):with_noremap():with_silent():with_desc("find: File in project"),
     ["n|<leader>fc"] = map_cu("Telescope colorscheme")

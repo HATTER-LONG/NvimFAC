@@ -18,6 +18,7 @@ tool["nvim-telescope/telescope.nvim"] = {
     dependencies = {
         --     { "nvim-tree/nvim-web-devicons" },
         { "nvim-lua/plenary.nvim" },
+        { "nvim-telescope/telescope-live-grep-args.nvim" },
         --     { "debugloop/telescope-undo.nvim" },
         --     {
         --         "ahmedkhalf/project.nvim",
@@ -32,7 +33,6 @@ tool["nvim-telescope/telescope.nvim"] = {
         --         }
         --     },
         --     { "jvgrootveld/telescope-zoxide" },
-        --     { "nvim-telescope/telescope-live-grep-args.nvim" },
     },
 }
 return tool
