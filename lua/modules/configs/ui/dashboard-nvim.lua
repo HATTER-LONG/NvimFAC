@@ -1,12 +1,12 @@
 return function()
-    require('dashboard').setup {
-  theme = 'hyper',
+  require('dashboard').setup {
+    theme = 'hyper',
     config = {
       week_header = {
         enable = true,
       },
       project = {
-        enable = true,
+        enable = false,
       },
       disable_move = true,
       shortcut = {
@@ -19,9 +19,16 @@ return function()
         },
         {
           icon = ' ',
-          desc = 'Files',
+          desc = 'Session',
           group = 'Function',
-          action = 'Telescope find_files find_command=rg,--ignore,--hidden,--files',
+          action = 'Telescope persisted',
+          key = 's',
+        },
+        {
+          icon = '📁',
+          desc = 'Files',
+          group = 'tmp',
+          action = 'Telescope find_files',
           key = 'f',
         },
         {
@@ -38,7 +45,10 @@ return function()
           action = 'Telescope dotfiles',
           key = 'd',
         },
+        -- footer = {
+        --   "https://github.com/HATTER-LONG",
+        -- },
       },
     },
-    }
+  }
 end

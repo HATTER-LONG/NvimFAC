@@ -18,13 +18,26 @@ local plug_map = {
         :with_silent()
         :with_desc("tool: Toggle command panel"),
     ["n|<leader>fw"] = map_callback(function()
-			require("telescope").extensions.live_grep_args.live_grep_args()
-		end)
-		:with_noremap()
-		:with_silent()
-		:with_desc("find: Word in project"),
+            require("telescope").extensions.live_grep_args.live_grep_args()
+        end)
+        :with_noremap()
+        :with_silent()
+        :with_desc("find: Word in project"),
+    ["n|<leader>fp"] = map_callback(function()
+            require("telescope").extensions.projects.projects({})
+        end)
+        :with_noremap()
+        :with_silent()
+        :with_desc("find: Project"),
     ["n|<leader>fe"] = map_cu("Telescope oldfiles"):with_noremap():with_silent():with_desc("find: File by history"),
+    ["n|<leader>fr"] = map_callback(function()
+            require("telescope").extensions.frecency.frecency()
+        end)
+        :with_noremap()
+        :with_silent()
+        :with_desc("find: File by frecency"),
     ["n|<leader>ff"] = map_cu("Telescope find_files"):with_noremap():with_silent():with_desc("find: File in project"),
+    ["n|<leader>fn"] = map_cu(":enew"):with_noremap():with_silent():with_desc("buffer: New"),
     ["n|<leader>fc"] = map_cu("Telescope colorscheme")
         :with_noremap()
         :with_silent()
@@ -45,9 +58,9 @@ local plug_map = {
         :with_desc("find: all workspace symbols"),
     ["n|<leader>fd"] = map_cu("Telescope persisted"):with_noremap():with_silent():with_desc("find: Session"),
     ["n|<leader>e"] = map_callback(function()
-         vim.cmd('Telescope file_browser')
-        local esc_key = api.nvim_replace_termcodes('<Esc>', true, false, true)
-         api.nvim_feedkeys(esc_key, 'n', false)
+            vim.cmd('Telescope file_browser')
+            local esc_key = api.nvim_replace_termcodes('<Esc>', true, false, true)
+            api.nvim_feedkeys(esc_key, 'n', false)
         end)
         :with_noremap()
         :with_silent()
