@@ -1,2 +1,3 @@
 .git/**
 site/lazy
+.DS_Store

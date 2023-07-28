@@ -16,23 +16,10 @@ tool["nvim-telescope/telescope.nvim"] = {
     cmd = "Telescope",
     config = require("tool.telescope"),
     dependencies = {
-        --     { "nvim-tree/nvim-web-devicons" },
         { "nvim-lua/plenary.nvim" },
         { "nvim-telescope/telescope-live-grep-args.nvim" },
-        --     { "debugloop/telescope-undo.nvim" },
-        --     {
-        --         "ahmedkhalf/project.nvim",
-        --         event = { "CursorHold", "CursorHoldI" },
-        --         config = require("tool.project"),
-        --     },
-        --     { "nvim-telescope/telescope-fzf-native.nvim",    build = "make" },
-        --     {
-        --         "nvim-telescope/telescope-frecency.nvim",
-        --         dependencies = {
-        --             { "kkharji/sqlite.lua" },
-        --         }
-        --     },
-        --     { "jvgrootveld/telescope-zoxide" },
+        { 'nvim-telescope/telescope-fzy-native.nvim' },
+        { 'nvim-telescope/telescope-file-browser.nvim' },
     },
 }
 return tool

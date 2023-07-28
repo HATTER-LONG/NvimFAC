@@ -27,6 +27,7 @@ ui["rcarriga/nvim-notify"] = {
     event = "VeryLazy",
     config = require("ui.notify"),
 }
+
 ui['glepnir/dashboard-nvim'] =
 {
     event = 'VimEnter',

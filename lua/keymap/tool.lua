@@ -1,3 +1,4 @@
+local api = vim.api
 local bind = require("keymap.bind")
 local map_cr = bind.map_cr
 local map_cu = bind.map_cu
@@ -43,6 +44,14 @@ local plug_map = {
         :with_silent()
         :with_desc("find: all workspace symbols"),
     ["n|<leader>fd"] = map_cu("Telescope persisted"):with_noremap():with_silent():with_desc("find: Session"),
+    ["n|<leader>e"] = map_callback(function()
+         vim.cmd('Telescope file_browser')
+        local esc_key = api.nvim_replace_termcodes('<Esc>', true, false, true)
+         api.nvim_feedkeys(esc_key, 'n', false)
+        end)
+        :with_noremap()
+        :with_silent()
+        :with_desc("tool: Toggle command panel"),
 
 }
 bind.nvim_load_mapping(plug_map)

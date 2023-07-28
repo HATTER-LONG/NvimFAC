@@ -1,5 +1,6 @@
 return function()
 	local icons = { ui = require("modules.utils.icons").get("ui", true) }
+    local fb_actions = require('telescope').extensions.file_browser.actions
 	require("telescope").setup({
 		defaults = {
 			vimgrep_arguments = {
@@ -43,45 +44,29 @@ return function()
 			file_previewer = require("telescope.previewers").vim_buffer_cat.new,
 			grep_previewer = require("telescope.previewers").vim_buffer_vimgrep.new,
 			qflist_previewer = require("telescope.previewers").vim_buffer_qflist.new,
-			file_sorter = require("telescope.sorters").get_fuzzy_file,
-			generic_sorter = require("telescope.sorters").get_generic_fuzzy_sorter,
-			buffer_previewer_maker = require("telescope.previewers").buffer_previewer_maker,
 		},
-		-- 	extensions = {
-		-- 		fzf = {
-		-- 			fuzzy = false,
-		-- 			override_generic_sorter = true,
-		-- 			override_file_sorter = true,
-		-- 			case_mode = "smart_case",
-		-- 		},
-		-- 		frecency = {
-		-- 			show_scores = true,
-		-- 			show_unindexed = true,
-		-- 			ignore_patterns = { "*.git/*", "*/tmp/*" },
-		-- 		},
-		-- 		undo = {
-		-- 			side_by_side = true,
-		-- 			mappings = { -- this whole table is the default
-		-- 				i = {
-		-- 					-- IMPORTANT: Note that telescope-undo must be available when telescope is configured if
-		-- 					-- you want to use the following actions. This means installing as a dependency of
-		-- 					-- telescope in it's `requirements` and loading this extension from there instead of
-		-- 					-- having the separate plugin definition as outlined above. See issue #6.
-		-- 					["<cr>"] = require("telescope-undo.actions").yank_additions,
-		-- 					["<S-cr>"] = require("telescope-undo.actions").yank_deletions,
-		-- 					["<C-cr>"] = require("telescope-undo.actions").restore,
-		-- 				},
-		-- 			},
-		-- 		},
-		--	},
+		extensions = {
+			fzy_native = {
+				override_generic_sorter = false,
+				override_file_sorter = true,
+			},
+			file_browser = {
+				mappings = {
+					['n'] = {
+						['c'] = fb_actions.create,
+						['r'] = fb_actions.rename,
+						['d'] = fb_actions.remove,
+						['o'] = fb_actions.open,
+						['u'] = fb_actions.goto_parent_dir,
+					},
+				},
+			},
+		},
 	})
 
-	-- require("telescope").load_extension("frecency")
-	-- require("telescope").load_extension("fzf")
 	require("telescope").load_extension("live_grep_args")
-	-- require("telescope").load_extension("notify")
-	-- require("telescope").load_extension("projects")
-	-- require("telescope").load_extension("undo")
-	-- require("telescope").load_extension("zoxide")
-	-- require("telescope").load_extension("persisted")
+	require("telescope").load_extension("app")
+	require('telescope').load_extension('dotfiles')
+	require('telescope').load_extension('fzy_native')
+	require('telescope').load_extension('file_browser')
 end
