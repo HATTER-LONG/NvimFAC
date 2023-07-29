@@ -1,3 +1,4 @@
 .git/**
-site/lazy
+site
 .DS_Store
+mason

@@ -13,4 +13,29 @@ settings["colorscheme"] = "catppuccin"
 -- Valid values are: `dark`, `light`.
 ---@type "dark"|"light"
 settings["background"] = "dark"
+
+-- Set it to false if diagnostics virtual text is annoying.
+-- If disabled, you may browse lsp diagnostics using trouble.nvim (press `gt` to toggle it).
+---@type boolean
+settings["diagnostics_virtual_text"] = true
+
+-- Set it to one of the values below if you want to change the visible severity level of lsp diagnostics.
+-- Priority: `Error` > `Warning` > `Information` > `Hint`.
+--  > e.g. if you set this option to `Warning`, only lsp warnings and errors will be shown.
+-- NOTE: This entry only works when `diagnostics_virtual_text` is true.
+---@type "Error"|"Warning"|"Information"|"Hint"
+settings["diagnostics_level"] = "Hint"
+
+-- Set the language servers that will be installed during bootstrap here.
+-- check the below link for all the supported LSPs:
+-- https://github.com/neovim/nvim-lspconfig/tree/master/lua/lspconfig/server_configurations
+---@type string[]
+settings["lsp_deps"] = {
+    "bashls",
+    "clangd",
+    "jsonls",
+    "lua_ls",
+    -- "pylsp",
+}
+
 return settings
